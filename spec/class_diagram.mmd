@@ -1,0 +1,35 @@
+classDiagram 
+
+    ScooterApp -- User: authenticates
+    ScooterApp o-- Scooter: tracking
+    User -- Scooter: rents
+
+    class Scooter {
+        +station string
+        +user string
+        +serial number
+        +charge number
+        +isBroken boolean
+        +docked boolean
+        +rent()
+        +dock(station)
+        +recharge()
+        +requestRepair()
+    }
+
+    class User {
+        +username string
+        +password string
+        +age number
+    }
+
+    class ScooterApp {
+        +stations object
+        +registeredUsers array
+        +scooterSessions array
+        +register(user)
+        +logIn(username, password)
+        +addScooter(location, scooter)
+        +removeScooter(scooterToRemove)
+    }
+
